@@ -7,39 +7,42 @@
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
      <title>Code Quiz</title>
      <!-- Bootstrap core CSS -->
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet">
      <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
 
      <div class="container">
-     <div class="row">
-          <div class="highscores col-6">
-               <a href="#">View high scores</a>
+          <div class="row mt-4">
+               <div class="highscores col-6">
+                    <a href="#">View high scores</a>
+               </div>
+               <!--end highscores-->
+               <div class="timer col-6">
+                    Time:
+               </div>
+               <!--end timer div-->
           </div>
-          <!--end highscores-->
-          <div class="timer col-6">
-               Time:
-          </div>
-          <!--end timer div-->
+          <!--end container div-->
      </div>
-     <!--end container div-->
-</div>
 
 
 
-     <main class="quiz container">
-         
-          <h2 class="cover-heading">Coding Quiz Challenge</h2>
-          <p class="lead">Try to answer the following code-related questions within the time limit.
+     <main class="quiz container mx-auto">
+
+          <h1 class="cover-heading">Coding Quiz Challenge</h1>
+          <p>Try to answer the following code-related questions within the time limit.
                Keep in mind that incorrect answers will penalize your score/time by
                ten seconds!
           </p>
-          <p class="lead">
-               <button type="button" class="btn btn-lg quiz-start">Start Quiz</button>
+          <p>
+               <button type="button" class="btn btn-lg quiz-start" id="quiz-btn">Start Quiz</button>
           </p>
-          
+
      </main>
 
 

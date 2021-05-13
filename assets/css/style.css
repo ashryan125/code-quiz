@@ -1,23 +1,42 @@
-
-
+body {
+     font-family: 'Heebo', sans-serif;
+}
 
 .quiz {
      text-align: center;
-     margin: 0 auto;
      width: 60%;
      padding-top: 50px;
 }
+
+.quiz p {
+     font-weight: 400;
+     font-size: 1.5rem;
+}
+
 
 .quiz-start {
      background-color: #351c75;
      color: white;
 }
 
+.quiz-start:hover {
+     background-color: #bd60e7;
+     color: white;
+}
+
 .highscores a {
      text-decoration: none;
      color: #bd60e7;
+     font-size: 1.5rem;
+     font-weight: 400;
+}
+
+.highscores a:hover {
+     color: #351c75;
 }
 
 .timer {
      text-align: right;
+     font-size: 1.5rem;
+     font-weight: 500;
 }
