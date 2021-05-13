@@ -1,0 +1,23 @@
+
+
+
+.quiz {
+     text-align: center;
+     margin: 0 auto;
+     width: 60%;
+     padding-top: 50px;
+}
+
+.quiz-start {
+     background-color: #351c75;
+     color: white;
+}
+
+.highscores a {
+     text-decoration: none;
+     color: #bd60e7;
+}
+
+.timer {
+     text-align: right;
+}
