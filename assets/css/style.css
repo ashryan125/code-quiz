@@ -17,6 +17,7 @@ body {
 .quiz-start {
      background-color: #351c75;
      color: white;
+     width: 200px;
 }
 
 .quiz-start:hover {
@@ -39,4 +40,13 @@ body {
      text-align: right;
      font-size: 1.5rem;
      font-weight: 500;
+}
+
+.ulStyle {
+     list-style: none;
+     text-align: left;
+}
+
+.text-left {
+     text-align: left;
 }
