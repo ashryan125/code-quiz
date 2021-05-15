@@ -67,6 +67,7 @@ function qDisplay() {
      optionListEl.innerHTML = "";
      // create h1 for question title
      var createQuestion = document.createElement("h1");
+     createQuestion.setAttribute("class", "questionTitle");
      var questionText = document.createTextNode(questions[questionNum].title);
      createQuestion.appendChild(questionText);
      document.getElementById("quiz-area").appendChild(createQuestion);
@@ -78,7 +79,7 @@ function qDisplay() {
           var listItem = document.createElement("li");
           var btnChoice = document.createElement("button");
           btnChoice.textContent = choices[i];
-          btnChoice.className = "btn btn-lg quiz-start text-left";
+          btnChoice.className = "btn btn-lg quiz-start btn-width text-left";
           listItem.appendChild(btnChoice);
           optionListEl.appendChild(listItem);
      }
@@ -88,22 +89,17 @@ function nextQuestion() {
      questionNum++;
 
      if (questionNum >= questions.length) {
-          console.log("quiz complete");
           clearInterval(startCountdown);
           quizComplete();
      } else {
-          console.log("next qustion logic");
-
-          // questionNum++;
-          console.log(questionNum);
-          console.log(questions.length);
-
           qDisplay();
      }
 }
 
-function answerCheck(event) {
 
+
+function answerCheck(event) {
+     questionResultEl.classList.add('answerCheckStyle');
      if (event.target.matches("button")) {
           var answer = event.target.textContent;
           if (answer === questions[questionNum].answer) {
@@ -111,7 +107,7 @@ function answerCheck(event) {
                correctCount++;
           } else {
                questionResultEl.textContent = "Wrong!";
-               timeLeft = timeLeft - penalty;
+               timer-=10;
           }
      }
 
@@ -123,30 +119,38 @@ optionListEl.addEventListener("click", answerCheck);
 
 var quizComplete = function () {
      // clear page
+     questionResultEl.classList.remove('answerCheckStyle');
      document.getElementById("quiz-area").innerHTML = "";
      optionListEl.innerHTML = "";
      document.getElementById("question-result").innerHTML = "";
+
+     // create div for styling
+     var divEl = document.createElement("div");
+     divEl.setAttribute("id", "completeDiv");
+
+     document.getElementById("quiz-area").appendChild(divEl);
 
      // create h1
      var h1 = document.createElement("h1");
      h1.setAttribute("id", "allDone");
      h1.textContent = "All done!";
 
-     document.getElementById("quiz-area").appendChild(h1);
+     document.getElementById("completeDiv").appendChild(h1);
 
      // display score
      var finalScore = document.createElement("p");
      finalScore.setAttribute("id", "finalScore");
-     finalScore.textContent = "Your final score is " + (correctCount + timer);
+     var totalScore = correctCount + timer;
+     finalScore.textContent = "Your final score is " + totalScore;
 
-     document.getElementById("quiz-area").appendChild(finalScore);
+     document.getElementById("completeDiv").appendChild(finalScore);
 
      // inital input
      var createLabel = document.createElement("label");
      createLabel.setAttribute("id", "createLabel");
      createLabel.textContent = "Enter your initials: ";
 
-     document.getElementById("quiz-area").appendChild(createLabel);
+     document.getElementById("completeDiv").appendChild(createLabel);
 
      // input
      var createInput = document.createElement("input");
@@ -154,16 +158,16 @@ var quizComplete = function () {
      createInput.setAttribute("id", "initials");
      createInput.textContent = "";
 
-     document.getElementById("quiz-area").appendChild(createInput);
+     document.getElementById("completeDiv").appendChild(createInput);
 
      // submit
      var createSubmit = document.createElement("button");
      createSubmit.setAttribute("type", "submit");
      createSubmit.setAttribute("id", "Submit");
-     createSubmit.setAttribute("class", "btn btn-lg quiz-start");
+     createSubmit.setAttribute("class", "btn quiz-start btn-sm");
      createSubmit.textContent = "Submit";
 
-     document.getElementById("quiz-area").appendChild(createSubmit);
+     document.getElementById("completeDiv").appendChild(createSubmit);
 
      // Event listener to capture initials and local storage for initials and score
      createSubmit.addEventListener("click", function () {
@@ -176,7 +180,7 @@ var quizComplete = function () {
           } else {
                var finalScore = {
                     initials: initials,
-                    score: timeRemaining
+                    score: totalScore
                }
                console.log(finalScore);
                var allScores = localStorage.getItem("allScores");

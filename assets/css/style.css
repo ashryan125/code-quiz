@@ -8,21 +8,32 @@ body {
      padding-top: 50px;
 }
 
+li {
+     margin-top: 10px;
+}
+
+
 .quiz p {
      font-weight: 400;
      font-size: 1.5rem;
 }
 
+.questionTitle {
+     text-align: left;
+}
 
 .quiz-start {
      background-color: #351c75;
      color: white;
-     width: 200px;
 }
 
 .quiz-start:hover {
      background-color: #bd60e7;
      color: white;
+}
+
+.btn-width {
+     width: 200px;
 }
 
 .highscores a {
@@ -45,8 +56,36 @@ body {
 .ulStyle {
      list-style: none;
      text-align: left;
+     padding-left: 0;
 }
 
 .text-left {
      text-align: left;
+}
+
+.answerCheckStyle {
+     border-top: 2px solid #afafaf;
+     text-align: left;
+     font-size: 2rem;
+     font-style: italic;
+     color: #afafaf;
+     padding-top: 8px;
+}
+
+#completeDiv {
+     text-align: left;
+     margin: 0 auto;
+}
+
+#createLabel {
+     font-size: 1.5rem;
+     padding-top: 1px;
+}
+#finalScore {
+     margin: 5px 0 5px 0;
+}
+
+#initials,
+#Submit {
+     margin-left: 10px;
 }
