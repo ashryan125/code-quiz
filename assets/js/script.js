@@ -175,14 +175,13 @@ var quizComplete = function () {
 
           if (initials === null) {
 
-               console.log("No value entered!");
+               window.alert("No value entered!");
 
           } else {
                var finalScore = {
                     initials: initials,
                     score: totalScore
                }
-               console.log(finalScore);
                var allScores = localStorage.getItem("allScores");
                if (allScores === null) {
                     allScores = [];
