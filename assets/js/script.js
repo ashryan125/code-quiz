@@ -31,7 +31,7 @@ var questionNum = 0;
 // current score
 var correctCount = 0;
 // deducted when player answers question incorrect
-var penalty = -10;
+var penalty = 10;
 // set initial timer to 75sec and first question
 var timer = 75;
 // location for quiz options/choices
@@ -54,32 +54,27 @@ document.getElementById("quiz-btn").addEventListener("click", function () {
 });
 
 // Display first question
-function qDisplay(questionNum) {
+function qDisplay() {
      // Clears existing data 
      document.getElementById("quiz-area").innerHTML = "";
-    
+     optionListEl.innerHTML = "";
      // create h1 for question title
      var createQuestion = document.createElement("h1");
      var questionText = document.createTextNode(questions[questionNum].title);
      createQuestion.appendChild(questionText);
      document.getElementById("quiz-area").appendChild(createQuestion);
-     var ulCreate = document.createElement("ul");
-     ulCreate.className = "ulStyle";
 
-     for (var i = 0; i < questions.length; i++) {
-          document.getElementById("quiz-area").appendChild(ulCreate);
-          var answerChoices = questions[i].choices;
-     }
-   
-     // question answer choices
-     answerChoices.forEach(function (newItem) {
+     var choices = questions[questionNum].choices;
+     var choicesLength = choices.length;
+
+     for (var i = 0; i < choices.length; i++) {
           var listItem = document.createElement("li");
           var btnChoice = document.createElement("button");
-          btnChoice.textContent = newItem;
+          btnChoice.textContent = choices[i];
           btnChoice.className = "btn btn-lg quiz-start text-left";
           listItem.appendChild(btnChoice);
-          ulCreate.appendChild(listItem);
-     });
+          optionListEl.appendChild(listItem);
+     }
 };
 
 function nextQuestion() {
@@ -88,18 +83,22 @@ function nextQuestion() {
 }
 
 function answerCheck(event) {
-     console.log("answerCheck");
      if (event.target.matches("li")) {
           var answer = event.target.textContent;
           if (answer === questions[questionNum].answer) {
+               console.log("correct");
                questionResultEl.textContent = "Correct!";
                correctCount++;
           } else {
+               console.log("wrong");
                questionResultEl.textContent = "Wrong!";
-               timer = timer + penalty;
+               // timer = timer + penalty;
           }
      }   
      setTimeout(nextQuestion, 2000);
+     qDisplay();
 };
 
 optionListEl.addEventListener("click", answerCheck);
+
+

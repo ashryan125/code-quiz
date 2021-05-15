@@ -32,21 +32,24 @@
 
 
 
-     <main class="quiz container mx-auto" id="quiz-area">
+     <main class="quiz container mx-auto">
+          <div id="quiz-area">
+               <h1 class="cover-heading">Coding Quiz Challenge</h1>
+               <p>Try to answer the following code-related questions within the time limit.
+                    Keep in mind that incorrect answers will penalize your score/time by
+                    ten seconds!
+               </p>
+               <p>
+                    <button type="button" class="btn btn-lg quiz-start" id="quiz-btn">Start Quiz</button>
+               </p>
 
-          <h1 class="cover-heading">Coding Quiz Challenge</h1>
-          <p>Try to answer the following code-related questions within the time limit.
-               Keep in mind that incorrect answers will penalize your score/time by
-               ten seconds!
-          </p>
-          <ul id="quiz-choices" class="ulStyle">
-               <!-- dynamically generated buttons will be placed here-->
-          </ul>
-          <p>
-               <button type="button" class="btn btn-lg quiz-start" id="quiz-btn">Start Quiz</button>
-          </p>
+          </div>
+          <div id="quiz-questions">
+               <ul id="quiz-choices" class="ulStyle">
+                    <!-- dynamically generated buttons will be placed here-->
+               </ul>
+          </div>
           <div id="question-result"></div>
-      
 
      </main>
 
