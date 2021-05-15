@@ -104,9 +104,71 @@ li {
 }
 
 
-
 .highScoreStyle {
      background-color: #d8d3e9;
      width: 60%;
 }
+/* styling for highscore html page end */
 
+/* media queries */
+
+
+/* Small devices (tablets, 400px and up) */
+/* @media screen and (min-width: 300px) and (max-width: 568px) */
+@media (max-width: 576px) { 
+     .quiz {
+          width: 90%;
+          padding-top: 10px;
+     }
+
+     .row {
+          justify-content: center;
+     }
+
+     .highscores {
+          width: 100%;
+          text-align: center;
+     }
+
+     #time {
+          text-align: center;
+     }
+
+     .questionTitle {
+          text-align: center;
+     }
+
+     .ulStyle {
+          text-align: center;
+     }
+  
+     .text-left {
+          text-align: center;
+     }
+
+     .answerCheckStyle {
+          text-align: center;
+     }
+
+     #completeDiv {
+          text-align: center;
+     }
+
+     #initials,
+     #Submit {
+          width: 100%;
+          margin-top: 10px;
+     }
+
+     #highscore {
+          width: 80%;
+     }
+
+     .highScoreStyle {
+          width: 100%;
+     }
+
+     .h1Style {
+          text-align: center;
+     }
+}
